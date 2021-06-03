@@ -4,5 +4,8 @@ services:
   application:
     restart: on-failure
     build: .
+    privileged: true
     ports:
       - "8000:8000"
+    volumes:
+      - "./source_code_dir:/app/target_dir"
