@@ -16,5 +16,8 @@
 	"bugs": {
 		"url": "https://github.com/fhinkel/nodejs-hello-world/issues"
 	},
-	"homepage": "https://github.com/fhinkel/nodejs-hello-world#readme"
+	"homepage": "https://github.com/fhinkel/nodejs-hello-world#readme",
+	"dependencies": {
+		"react": "^17.0.2"
+	}
 }
