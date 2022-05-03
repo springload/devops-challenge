@@ -1,8 +1,18 @@
 version: "3.7"
 
 services:
+  dependencies:
+    image: companyrepo/app_yarn_dependencies:latest
+    build:
+      context: ./dependencies/
+      dockerfile: ../dependencies.Dockerfile
+
   application:
     restart: on-failure
-    build: .
+    build:
+      cache_from:
+        - companyrepo/app_yarn_dependencies:latest
+      context: ./app/
+      dockerfile: ../app.Dockerfile
     ports:
       - "8000:8000"
