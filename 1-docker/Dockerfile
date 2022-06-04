@@ -2,7 +2,8 @@ FROM node:lts-alpine
 
 WORKDIR /app
 
-COPY ./ ./
 RUN yarn install
+
+COPY ./ ./
 
 CMD yarn start
