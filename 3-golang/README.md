@@ -5,3 +5,11 @@ to make some parallel API calls.
 
 This quite simplified program is expected to print numbers from 0 to 4, but instead
 it prints 5 multiple times! What's going on?
+
+### Answer
+
+Here the program was printing the number within the goroutine which was
+calling `wg.Done`, since they run concurrently/in parrallel the number
+will always be 5. By printing the number after this goroutine, but within
+the for loop we can get the expected output, which is to print numbers
+from 0 to 4.
