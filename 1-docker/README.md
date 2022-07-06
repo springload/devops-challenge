@@ -21,7 +21,7 @@ VOLUME /usr/local/yarn-cache
 
 WORKDIR /app
 
-ADD packege.json yarn.lock /app
+ADD package.json yarn.lock /app
 
 RUN yarn install
 
@@ -64,4 +64,3 @@ services:
      volumes:
       - ./app:/app/
 ```
-
