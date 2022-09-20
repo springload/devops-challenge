@@ -28,8 +28,23 @@ Using the USER option, user can be switched
 3. Yes, it is possible to share the code with a started container by using bind mounts, instead of creating a new image on each change.Can be done using docker bind mount.
 First build the docker image 
 
+```hcl
 $ docker build -t myapp/yarn
+```
 
 Then mount the local directory to working directory in the docker container
 
-$ docker run -it --mount "type=bind,source=$(pwd)/devops-challenge-sl/1-docker,target=/app" myapp/yarn
+```hcl
+$ docker run -it --mount "type=bind,source=$(pwd)/1-docker,target=/app" myapp/yarn
+```
+
+This can also be done using docker compose. Amend the docker-compose.yaml as follows
+```hcl
+version: '3.7'
+services:
+  example:
+    image: myapp/yarn
+    volumes:
+      - ./1-docker:/app/target_dir
+    command: touch /app/target_dir
+```
