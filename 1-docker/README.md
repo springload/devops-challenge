@@ -32,4 +32,4 @@ $ docker build -t myapp/yarn
 
 Then mount the local directory to working directory in the docker container
 
-$ docker run -it --mount "type=bind,source=$(pwd)/devops-challenge-sl,target=/app" myapp/yarn
+$ docker run -it --mount "type=bind,source=$(pwd)/devops-challenge-sl/1-docker,target=/app" myapp/yarn
