@@ -1,5 +1,6 @@
-#!/bin/bash -e
+#!/bin/bash
 
+set -e
 echo "pre"
 # due to the -e flag above this should stop the script
 false
