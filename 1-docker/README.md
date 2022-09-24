@@ -10,7 +10,7 @@ Solution: Copying only the package.json and yarn.lock files before running `yarn
 
 2. The application runs as a root. Is it possible to force it to run under an unprivileged user?
 
-Solution: 
+Solution: Add a command in the Dockerfile to add a non-root user and set this user
 
 3. A developer wants to use the same Dockerfile for development on their local machine, but it
    requires rebuilding the image every time. Is there a way to improve it?
