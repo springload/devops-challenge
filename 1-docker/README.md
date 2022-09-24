@@ -15,4 +15,4 @@ Solution: Add a command in the Dockerfile to add a non-root user and set this us
 3. A developer wants to use the same Dockerfile for development on their local machine, but it
    requires rebuilding the image every time. Is there a way to improve it?
 
-Solution: 
+Solution: Mount the local development directory as a volume in the docker container so that local changes are immediately reflected without the need to rebuild the image
