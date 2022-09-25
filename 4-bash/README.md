@@ -14,4 +14,4 @@ Answers:
 when executed as 'sh fail.sh', since script is using Bash,it will ignore the shebang & script will not exit on error.
 -e flag makes the shell exit immediately when something returns an error/non-zero status
 
-2. conditions.sh beheaves the same when executed as ./conditions.sh as well as 'sh conditions.sh'. 
+2. conditions.sh beheaves the same when executed as ./conditions.sh as well as 'sh conditions.sh'. In bash the two are equivalent, and in sh = is the only one that will work(in some cases this would == would have issues when executed using sh). '==' is a bash-specific alias for '=' and it performs a string comparison. Recomoneded way would be to use '=' 
