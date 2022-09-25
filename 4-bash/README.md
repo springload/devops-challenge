@@ -11,6 +11,7 @@ Please, take a look at 2 scripts in this folder.
 
 Answers: 
 1. To make it work eitherway, add a line with 'set -e' after the first line instead of adding the -e paramenter on the first line along with /bin/bash.
--e makes the shell exit immediately when something returns an error/non-zero status
+when executed as 'sh fail.sh', since script is using Bash,it will ignore the shebang & script will not exit on error.
+-e flag makes the shell exit immediately when something returns an error/non-zero status
 
-2. conditions.sh beheaves the same when executed as ./conditions.sh as well as 'sh conditions.sh' 
+2. conditions.sh beheaves the same when executed as ./conditions.sh as well as 'sh conditions.sh'. 
