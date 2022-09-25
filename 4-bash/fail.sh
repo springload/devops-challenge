@@ -1,7 +1,8 @@
-#!/bin/bash -e
+#!/bin/bash
+set -e    
 
 echo "pre"
 # due to the -e flag above this should stop the script
-false
+false 
 # shouldn't be able to see it
 echo "post"
