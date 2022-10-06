@@ -1,0 +1,49 @@
+name: Test
+on:
+  pull_request:
+  push:
+
+jobs:
+  test-docker:
+    name: Run tests for Docker
+    runs-on: ubuntu-latest
+    env:
+      COMPOSE_FILE: 1-docker/docker-compose.yml
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Build the docker image
+      run: docker build -t app 1-docker
+
+    - name: Run tests
+      run: |
+        set -ev
+        # up the daemon, hopefully it's built
+        docker run -d -p 8000:8000 --name app --rm app
+        # check if node_modules exist
+        docker exec -i app test -d node_modules
+        docker logs app
+        # check if we can curl it
+        for i in $(seq 1 5); do [ $i -gt 1 ] && sleep 5; curl localhost:8000 && s=0 && break || s=$?; done; (exit $s)
+  test-go:
+    name: Run tests for Go
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Go
+      uses: actions/setup-go@v1
+      with:
+        go-version: 1.17.x
+
+    - name: Run tests
+      run: |
+        set -ev
+        cd 3-golang
+        # check if the output is the same as we expect
+        go run main.go | sort | diff -u expected.txt -
+
