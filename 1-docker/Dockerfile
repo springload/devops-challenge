@@ -7,7 +7,7 @@ COPY ./package.json package.json
 COPY ./yarn.lock yarn.lock
 RUN yarn install
 #index file should be copied after since it would be changed more often
-COPY index.js
+COPY ./index.js index.js
 #switch to the user
 USER username
 CMD yarn start
